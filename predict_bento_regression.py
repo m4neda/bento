@@ -92,9 +92,10 @@ def main():
 
     # 検証データの予測
     test_predict_results = lr.predict(test_df)
+    print('predict results:{0}'.format(test_predict_results))
 
     test_predict_series = pd.Series(test_predict_results)
-    test_predict_series_rounded = np.round(test_predict_results)
+    test_predict_series_rounded = np.round(test_predict_series)
 
     test_2 = pd.read_csv('csv_bento/test.csv')
     index_df = pd.DataFrame(test_2.datetime)
