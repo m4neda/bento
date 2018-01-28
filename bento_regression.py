@@ -27,7 +27,7 @@ def get_dummy_encoded_datetime_df(df):
 
 def prepare(df):
     # fillna to 0
-    df.fillna(0, inplace=True)
+    df.fillna(-1, inplace=True)
 
     dummy_datetime_df = get_dummy_encoded_datetime_df(df)
     df = df.join(dummy_datetime_df)
