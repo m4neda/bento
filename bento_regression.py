@@ -67,7 +67,6 @@ def main():
     train.drop("y", axis=1, inplace=True)
 
     train_df = prepare(train)
-    test_df = prepare(test)
 
     X = train_df
     y = train_y
