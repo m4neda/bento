@@ -38,10 +38,7 @@ def prepare(df):
     df = df.join(dummy_menu_df)
 
     # 特記事項 文字列が入っている。フラグにする
-    df.remarks.fillna(0, inplace=True)
     df.remarks.where(df.remarks == 0, 1, inplace=True)
-
-    df.payday.fillna(0, inplace=True)
 
     df.event.fillna(-1, inplace=True)
     df.event.where(df.event == -1, 1, inplace=True)
