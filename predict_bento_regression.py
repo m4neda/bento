@@ -58,7 +58,7 @@ def main():
     train_y = train.y
     train.drop("y", axis=1, inplace=True)
 
-    # for sepalate after
+    # for separate after
     train['is_train'] = 1
     test['is_train'] = 0
     len(train), len(test)
@@ -69,13 +69,14 @@ def main():
     # 前処理
     joined_df = prepare(joined_train_test)
 
-
+    # separete train test
     sepalated_train_df = joined_df[joined_df.is_train == 1]
     sepalated_test_df = joined_df[joined_df.is_train == 0]
 
     train_df = sepalated_train_df.drop('is_train', axis=1)
     test_df = sepalated_test_df.drop('is_train', axis=1)
 
+    # fillna
     train_df.fillna(0, inplace=True)
     test_df.fillna(0, inplace=True)
 
