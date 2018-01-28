@@ -8,10 +8,7 @@ from sklearn.model_selection import LeaveOneOut
 from sklearn.model_selection import cross_val_score
 
 
-def prepare(df):
-    # fillna to 0
-    df.fillna(0, inplace=True)
-
+def get_dummy_encoded_datetime_df(df):
     get_year = lambda x: str(x.year)
     year = df.datetime.map(get_year)
     get_month = lambda x: str(x.month)
@@ -25,7 +22,15 @@ def prepare(df):
         columns=['year', 'month', 'day']
     )
     dummy_df = pd.get_dummies(splitted_datetime_df[['year', 'month', 'day']])
-    df = df.join(dummy_df)
+    return dummy_df
+
+
+def prepare(df):
+    # fillna to 0
+    df.fillna(0, inplace=True)
+
+    dummy_datetime_df = get_dummy_encoded_datetime_df(df)
+    df = df.join(dummy_datetime_df)
 
     dummy_week_df = pd.get_dummies(df[['week']])
     df = df.join(dummy_week_df)
