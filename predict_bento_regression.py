@@ -106,7 +106,7 @@ def main():
     predict_results_df[[0]] = predict_results_df[[0]].astype(int)
 
     predict_results_df.to_csv(
-        'bento_predict_use_100data.csv',
+        'bento_predict_sklearn_linearR.csv',
         header=False,
         index=False,
     )
