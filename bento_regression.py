@@ -60,7 +60,6 @@ def pd_read_csv(file_name):
 
 def main():
     train = pd_read_csv('train.csv')
-    test = pd_read_csv('test.csv')
 
     # delete y
     train_y = train.y
