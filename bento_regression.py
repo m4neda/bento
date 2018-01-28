@@ -75,8 +75,8 @@ def main():
     loo = LeaveOneOut()
     scores = cross_val_score(lr, X, y, scoring="neg_mean_squared_error", cv=loo)
     rmse_scores = np.sqrt(-scores)
-    test = rmse_scores.mean()
-    print(test)
+    print('Cross Validation rmse score{0}'.format(rmse_scores))
+    print('Average:{0}'.format(rmse_scores.mean()))
 
 
 if __name__ == '__main__':
